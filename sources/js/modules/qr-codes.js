@@ -68,7 +68,9 @@ const QrCodes = (()=>{
                 QrCodesConfig();
                 //SIMULAMOS CLICK PARA RENDERIZAR EL QR EN CASO DE QUE SE ACEPTEN PERMISOS
                 const getBtnSimulateClick = document.querySelector('#html5-qrcode-button-camera-permission');
+                const getBtnSimulateClickStart = document.querySelector('#html5-qrcode-button-camera-start');
                 getBtnSimulateClick && getBtnSimulateClick.click();
+                getBtnSimulateClickStart && getBtnSimulateClickStart.click();
                 //AÑADIMOS CLASES PARA MOSTRAR LA CAMARA
                 getCtnQrRender && getCtnQrRender.classList.add('active');
                 getQrBg && getQrBg.classList.add('active');
