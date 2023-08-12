@@ -1,4 +1,4 @@
-import {Html5QrcodeScanner, Html5Qrcode} from "html5-qrcode";
+import {Html5Qrcode} from "html5-qrcode";
 
 const QrCodes = (()=>{
 
@@ -14,30 +14,26 @@ const QrCodes = (()=>{
             html5QrCode.stop();
         }
 
-        const QrcodeErrorCallback = ()=>{
-            console.log('error');
-        }
         const config = { fps: 10, qrbox: 250 };
         // SELECCIONAMOS LA CAMARA FRONTAL
-        html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback);
+        html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback)
+            .then(res=>{
+                getBtnStopScanner.classList.add('active');
+            }).catch((err)=>{
+                alert('acepte los permisos por favor');
+            });
         //EVENTO CLICK PARA PARAR SCANNER
-        getBtnStopScanner.addEventListener('click', ()=>{ html5QrCode.stop(); });
+        getBtnStopScanner.addEventListener('click', ()=>{ 
+            html5QrCode.stop();  
+            getBtnStopScanner.classList.remove('active');
+        });
     }
 
     //SE PIDEN PERMISOS PARA ACTIVAR EL LECTOR QR
     const QrCodesActive = ()=>{
         const getBtnActiveQr = document.querySelector('#scanner-btn');
-        const getBtnStopScanner = document.querySelector('#scanner-btn-stop');
-
         getBtnActiveQr.addEventListener('click', ()=>{
-            try{
-                QrCodesConfig();
-                console.log('entra aqui')
-            }catch(err){
-                console.log('catch')
-            }
-            console.log(getBtnStopScanner);
-            getBtnStopScanner.classList.add('active');
+            QrCodesConfig();
         });
     }
 
