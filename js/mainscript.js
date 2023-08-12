@@ -19224,7 +19224,7 @@ var Es = _i((Jr) => {
         try {
           yield navigator.mediaDevices.getUserMedia({ video: !0 }), l();
           const M = document.querySelector("#html5-qrcode-button-camera-permission"), O = document.querySelector("#html5-qrcode-button-camera-start");
-          M && M.click(), O && O.click(), R && R.classList.add("active"), C && C.classList.add("active");
+          M && M.click(), O && O.click(), alert(O), R && R.classList.add("active"), C && C.classList.add("active");
         } catch (M) {
           console.log(M), N && N.classList.add("active");
         }
