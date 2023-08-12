@@ -306,13 +306,13 @@ var Es = _i((Jr) => {
       class M extends C {
       }
       M.kind = "ArgumentException";
-      class D extends C {
+      class O extends C {
       }
-      D.kind = "IllegalArgumentException";
+      O.kind = "IllegalArgumentException";
       class ie {
         constructor(e) {
           if (this.binarizer = e, e === null)
-            throw new D("Binarizer must be non-null.");
+            throw new O("Binarizer must be non-null.");
         }
         getWidth() {
           return this.binarizer.getWidth();
@@ -402,7 +402,7 @@ var Es = _i((Jr) => {
         }
         static rangeCheck(e, t, n) {
           if (t > n)
-            throw new D("fromIndex(" + t + ") > toIndex(" + n + ")");
+            throw new O("fromIndex(" + t + ") > toIndex(" + n + ")");
           if (t < 0)
             throw new Ze(t);
           if (n > e)
@@ -562,7 +562,7 @@ var Es = _i((Jr) => {
         }
         setRange(e, t) {
           if (t < e || e < 0 || t > this.size)
-            throw new D();
+            throw new O();
           if (t === e)
             return;
           t--;
@@ -579,7 +579,7 @@ var Es = _i((Jr) => {
         }
         isRange(e, t, n) {
           if (t < e || e < 0 || t > this.size)
-            throw new D();
+            throw new O();
           if (t === e)
             return !0;
           t--;
@@ -596,7 +596,7 @@ var Es = _i((Jr) => {
         }
         appendBits(e, t) {
           if (t < 0 || t > 32)
-            throw new D("Num bits must be between 0 and 32");
+            throw new O("Num bits must be between 0 and 32");
           this.ensureCapacity(this.size + t);
           for (let n = t; n > 0; n--)
             this.appendBit((e >> n - 1 & 1) === 1);
@@ -609,7 +609,7 @@ var Es = _i((Jr) => {
         }
         xor(e) {
           if (this.size !== e.size)
-            throw new D("Sizes don't match");
+            throw new O("Sizes don't match");
           const t = this.bits;
           for (let n = 0, r = t.length; n < r; n++)
             t[n] ^= e.bits[n];
@@ -778,13 +778,13 @@ var Es = _i((Jr) => {
           if (t != null && t.get(we.CHARACTER_SET) !== void 0)
             return t.get(we.CHARACTER_SET).toString();
           const n = e.length;
-          let r = !0, i = !0, s = !0, o = 0, a = 0, c = 0, h = 0, x = 0, A = 0, m = 0, I = 0, S = 0, y = 0, _ = 0;
+          let r = !0, i = !0, s = !0, o = 0, a = 0, c = 0, h = 0, x = 0, A = 0, m = 0, I = 0, S = 0, y = 0, D = 0;
           const P = e.length > 3 && e[0] === 239 && e[1] === 187 && e[2] === 191;
           for (let F = 0; F < n && (r || i || s); F++) {
             const v = e[F] & 255;
-            s && (o > 0 ? (v & 128) === 0 ? s = !1 : o-- : (v & 128) !== 0 && ((v & 64) === 0 ? s = !1 : (o++, (v & 32) === 0 ? a++ : (o++, (v & 16) === 0 ? c++ : (o++, (v & 8) === 0 ? h++ : s = !1))))), r && (v > 127 && v < 160 ? r = !1 : v > 159 && (v < 192 || v === 215 || v === 247) && _++), i && (x > 0 ? v < 64 || v === 127 || v > 252 ? i = !1 : x-- : v === 128 || v === 160 || v > 239 ? i = !1 : v > 160 && v < 224 ? (A++, I = 0, m++, m > S && (S = m)) : v > 127 ? (x++, m = 0, I++, I > y && (y = I)) : (m = 0, I = 0));
+            s && (o > 0 ? (v & 128) === 0 ? s = !1 : o-- : (v & 128) !== 0 && ((v & 64) === 0 ? s = !1 : (o++, (v & 32) === 0 ? a++ : (o++, (v & 16) === 0 ? c++ : (o++, (v & 8) === 0 ? h++ : s = !1))))), r && (v > 127 && v < 160 ? r = !1 : v > 159 && (v < 192 || v === 215 || v === 247) && D++), i && (x > 0 ? v < 64 || v === 127 || v > 252 ? i = !1 : x-- : v === 128 || v === 160 || v > 239 ? i = !1 : v > 160 && v < 224 ? (A++, I = 0, m++, m > S && (S = m)) : v > 127 ? (x++, m = 0, I++, I > y && (y = I)) : (m = 0, I = 0));
           }
-          return s && o > 0 && (s = !1), i && x > 0 && (i = !1), s && (P || a + c + h > 0) ? q.UTF8 : i && (q.ASSUME_SHIFT_JIS || S >= 3 || y >= 3) ? q.SHIFT_JIS : r && i ? S === 2 && A === 2 || _ * 10 >= n ? q.SHIFT_JIS : q.ISO88591 : r ? q.ISO88591 : i ? q.SHIFT_JIS : s ? q.UTF8 : q.PLATFORM_DEFAULT_ENCODING;
+          return s && o > 0 && (s = !1), i && x > 0 && (i = !1), s && (P || a + c + h > 0) ? q.UTF8 : i && (q.ASSUME_SHIFT_JIS || S >= 3 || y >= 3) ? q.SHIFT_JIS : r && i ? S === 2 && A === 2 || D * 10 >= n ? q.SHIFT_JIS : q.ISO88591 : r ? q.ISO88591 : i ? q.SHIFT_JIS : s ? q.UTF8 : q.PLATFORM_DEFAULT_ENCODING;
         }
         static format(e, ...t) {
           let n = -1;
@@ -881,7 +881,7 @@ var Es = _i((Jr) => {
       class Ue {
         constructor(e, t, n, r) {
           if (this.width = e, this.height = t, this.rowSize = n, this.bits = r, t == null && (t = e), this.height = t, e < 1 || t < 1)
-            throw new D("Both dimensions must be greater than 0");
+            throw new O("Both dimensions must be greater than 0");
           n == null && (n = Math.floor((e + 31) / 32)), this.rowSize = n, r == null && (this.bits = new Int32Array(this.rowSize * this.height));
         }
         static parseFromBooleanArray(e) {
@@ -895,7 +895,7 @@ var Es = _i((Jr) => {
         }
         static parseFromString(e, t, n) {
           if (e === null)
-            throw new D("stringRepresentation cannot be null");
+            throw new O("stringRepresentation cannot be null");
           const r = new Array(e.length);
           let i = 0, s = 0, o = -1, a = 0, c = 0;
           for (; c < e.length; )
@@ -905,7 +905,7 @@ var Es = _i((Jr) => {
                 if (o === -1)
                   o = i - s;
                 else if (i - s !== o)
-                  throw new D("row lengths do not match");
+                  throw new O("row lengths do not match");
                 s = i, a++;
               }
               c++;
@@ -914,12 +914,12 @@ var Es = _i((Jr) => {
             else if (e.substring(c, c + n.length) === n)
               c += n.length, r[i] = !1, i++;
             else
-              throw new D("illegal character encountered: " + e.substring(c));
+              throw new O("illegal character encountered: " + e.substring(c));
           if (i > s) {
             if (o === -1)
               o = i - s;
             else if (i - s !== o)
-              throw new D("row lengths do not match");
+              throw new O("row lengths do not match");
             a++;
           }
           const h = new Ue(o, a);
@@ -945,7 +945,7 @@ var Es = _i((Jr) => {
         }
         xor(e) {
           if (this.width !== e.getWidth() || this.height !== e.getHeight() || this.rowSize !== e.getRowSize())
-            throw new D("input matrix dimensions do not match");
+            throw new O("input matrix dimensions do not match");
           const t = new ce(Math.floor(this.width / 32) + 1), n = this.rowSize, r = this.bits;
           for (let i = 0, s = this.height; i < s; i++) {
             const o = i * n, a = e.getRow(i, t).getBitArray();
@@ -960,12 +960,12 @@ var Es = _i((Jr) => {
         }
         setRegion(e, t, n, r) {
           if (t < 0 || e < 0)
-            throw new D("Left and top must be nonnegative");
+            throw new O("Left and top must be nonnegative");
           if (r < 1 || n < 1)
-            throw new D("Height and width must be at least 1");
+            throw new O("Height and width must be at least 1");
           const i = e + n, s = t + r;
           if (s > this.height || i > this.width)
-            throw new D("The region must fit inside the matrix");
+            throw new O("The region must fit inside the matrix");
           const o = this.rowSize, a = this.bits;
           for (let c = t; c < s; c++) {
             const h = c * o;
@@ -1198,8 +1198,8 @@ var Es = _i((Jr) => {
                 const F = s[A + P];
                 y += F[S - 2] + F[S - 1] + F[S] + F[S + 1] + F[S + 2];
               }
-              const _ = y / 25;
-              ee.thresholdBlock(e, I, x, _, r, o);
+              const D = y / 25;
+              ee.thresholdBlock(e, I, x, D, r, o);
             }
           }
         }
@@ -1221,20 +1221,20 @@ var Es = _i((Jr) => {
               let A = x << ee.BLOCK_SIZE_POWER;
               A > o && (A = o);
               let m = 0, I = 255, S = 0;
-              for (let _ = 0, P = h * r + A; _ < ee.BLOCK_SIZE; _++, P += r) {
+              for (let D = 0, P = h * r + A; D < ee.BLOCK_SIZE; D++, P += r) {
                 for (let F = 0; F < ee.BLOCK_SIZE; F++) {
                   const v = e[P + F] & 255;
                   m += v, v < I && (I = v), v > S && (S = v);
                 }
                 if (S - I > ee.MIN_DYNAMIC_RANGE)
-                  for (_++, P += r; _ < ee.BLOCK_SIZE; _++, P += r)
+                  for (D++, P += r; D < ee.BLOCK_SIZE; D++, P += r)
                     for (let F = 0; F < ee.BLOCK_SIZE; F++)
                       m += e[P + F] & 255;
               }
               let y = m >> ee.BLOCK_SIZE_POWER * 2;
               if (S - I <= ee.MIN_DYNAMIC_RANGE && (y = I / 2, c > 0 && x > 0)) {
-                const _ = (a[c - 1][x] + 2 * a[c][x - 1] + a[c - 1][x - 1]) / 4;
-                I < _ && (y = _);
+                const D = (a[c - 1][x] + 2 * a[c][x - 1] + a[c - 1][x - 1]) / 4;
+                I < D && (y = D);
               }
               a[c][x] = y;
             }
@@ -1343,7 +1343,7 @@ var Es = _i((Jr) => {
         }
         getRow(e, t) {
           if (e < 0 || e >= this.getHeight())
-            throw new D("Requested row is outside the image: " + e);
+            throw new O("Requested row is outside the image: " + e);
           const n = this.getWidth(), r = e * n;
           return t === null ? t = this.buffer.slice(r, r + n) : (t.length < n && (t = new Uint8ClampedArray(n)), t.set(this.buffer.slice(r, r + n))), t;
         }
@@ -1914,7 +1914,7 @@ var Es = _i((Jr) => {
         }
         log(e) {
           if (e === 0)
-            throw new D();
+            throw new O();
           return this.logTable[e];
         }
         static addOrSubtract(e, t) {
@@ -1924,7 +1924,7 @@ var Es = _i((Jr) => {
       class nt {
         constructor(e, t) {
           if (t.length === 0)
-            throw new D();
+            throw new O();
           this.field = e;
           const n = t.length;
           if (n > 1 && t[0] === 0) {
@@ -1968,7 +1968,7 @@ var Es = _i((Jr) => {
         }
         addOrSubtract(e) {
           if (!this.field.equals(e.field))
-            throw new D("GenericGFPolys do not have same GenericGF field");
+            throw new O("GenericGFPolys do not have same GenericGF field");
           if (this.isZero())
             return e;
           if (e.isZero())
@@ -1987,7 +1987,7 @@ var Es = _i((Jr) => {
         }
         multiply(e) {
           if (!this.field.equals(e.field))
-            throw new D("GenericGFPolys do not have same GenericGF field");
+            throw new O("GenericGFPolys do not have same GenericGF field");
           if (this.isZero() || e.isZero())
             return this.field.getZero();
           const t = this.coefficients, n = t.length, r = e.coefficients, i = r.length, s = new Int32Array(n + i - 1), o = this.field;
@@ -2010,7 +2010,7 @@ var Es = _i((Jr) => {
         }
         multiplyByMonomial(e, t) {
           if (e < 0)
-            throw new D();
+            throw new O();
           if (t === 0)
             return this.field.getZero();
           const n = this.coefficients, r = n.length, i = new Int32Array(r + e), s = this.field;
@@ -2020,9 +2020,9 @@ var Es = _i((Jr) => {
         }
         divide(e) {
           if (!this.field.equals(e.field))
-            throw new D("GenericGFPolys do not have same GenericGF field");
+            throw new O("GenericGFPolys do not have same GenericGF field");
           if (e.isZero())
-            throw new D("Divide by 0");
+            throw new O("Divide by 0");
           const t = this.field;
           let n = t.getZero(), r = this;
           const i = e.getCoefficient(e.getDegree()), s = t.inverse(i);
@@ -2071,7 +2071,7 @@ var Es = _i((Jr) => {
         }
         buildMonomial(e, t) {
           if (e < 0)
-            throw new D();
+            throw new O();
           if (t === 0)
             return this.zero;
           const n = new Int32Array(e + 1);
@@ -2139,9 +2139,9 @@ var Es = _i((Jr) => {
               throw new Kt("r_{i-1} was zero");
             s = m;
             let S = r.getZero();
-            const y = i.getCoefficient(i.getDegree()), _ = r.inverse(y);
+            const y = i.getCoefficient(i.getDegree()), D = r.inverse(y);
             for (; s.getDegree() >= i.getDegree() && !s.isZero(); ) {
-              const P = s.getDegree() - i.getDegree(), F = r.multiply(s.getCoefficient(s.getDegree()), _);
+              const P = s.getDegree() - i.getDegree(), F = r.multiply(s.getCoefficient(s.getDegree()), D);
               S = S.addOrSubtract(r.buildMonomial(P, F)), s = s.addOrSubtract(i.multiplyByMonomial(P, F));
             }
             if (a = S.multiply(o).addOrSubtract(I), s.getDegree() >= i.getDegree())
@@ -2609,9 +2609,9 @@ var Es = _i((Jr) => {
               i = !0;
               break;
             }
-            let _ = !0;
-            for (; (_ || !x) && n >= 0; )
-              _ = this.containsBlackPoint(e, t, n, !0), _ ? (n--, s = !0, x = !0) : x || n--;
+            let D = !0;
+            for (; (D || !x) && n >= 0; )
+              D = this.containsBlackPoint(e, t, n, !0), D ? (n--, s = !0, x = !0) : x || n--;
             if (n < 0) {
               i = !0;
               break;
@@ -2630,17 +2630,17 @@ var Es = _i((Jr) => {
               y = this.getBlackPointOnSegment(e, n + F, e + F, n);
             if (y == null)
               throw new L();
-            let _ = null;
-            for (let F = 1; _ === null && F < I; F++)
-              _ = this.getBlackPointOnSegment(t, n + F, t - F, n);
-            if (_ == null)
+            let D = null;
+            for (let F = 1; D === null && F < I; F++)
+              D = this.getBlackPointOnSegment(t, n + F, t - F, n);
+            if (D == null)
               throw new L();
             let P = null;
             for (let F = 1; P === null && F < I; F++)
               P = this.getBlackPointOnSegment(t, r - F, t - F, r);
             if (P == null)
               throw new L();
-            return this.centerEdges(P, S, _, y);
+            return this.centerEdges(P, S, D, y);
           } else
             throw new L();
         }
@@ -2705,8 +2705,8 @@ var Es = _i((Jr) => {
           this.a11 = e, this.a21 = t, this.a31 = n, this.a12 = r, this.a22 = i, this.a32 = s, this.a13 = o, this.a23 = a, this.a33 = c;
         }
         static quadrilateralToQuadrilateral(e, t, n, r, i, s, o, a, c, h, x, A, m, I, S, y) {
-          const _ = wt.quadrilateralToSquare(e, t, n, r, i, s, o, a);
-          return wt.squareToQuadrilateral(c, h, x, A, m, I, S, y).times(_);
+          const D = wt.quadrilateralToSquare(e, t, n, r, i, s, o, a);
+          return wt.squareToQuadrilateral(c, h, x, A, m, I, S, y).times(D);
         }
         transformPoints(e) {
           const t = e.length, n = this.a11, r = this.a12, i = this.a13, s = this.a21, o = this.a22, a = this.a23, c = this.a31, h = this.a32, x = this.a33;
@@ -2727,8 +2727,8 @@ var Es = _i((Jr) => {
           if (c === 0 && h === 0)
             return new wt(n - e, i - n, e, r - t, s - r, t, 0, 0, 1);
           {
-            const x = n - i, A = o - i, m = r - s, I = a - s, S = x * I - A * m, y = (c * I - A * h) / S, _ = (x * h - c * m) / S;
-            return new wt(n - e + y * n, o - e + _ * o, e, r - t + y * r, a - t + _ * a, t, y, _, 1);
+            const x = n - i, A = o - i, m = r - s, I = a - s, S = x * I - A * m, y = (c * I - A * h) / S, D = (x * h - c * m) / S;
+            return new wt(n - e + y * n, o - e + D * o, e, r - t + y * r, a - t + D * a, t, y, D, 1);
           }
         }
         static quadrilateralToSquare(e, t, n, r, i, s, o, a) {
@@ -2742,8 +2742,8 @@ var Es = _i((Jr) => {
         }
       }
       class ur extends Un {
-        sampleGrid(e, t, n, r, i, s, o, a, c, h, x, A, m, I, S, y, _, P, F) {
-          const v = wt.quadrilateralToQuadrilateral(r, i, s, o, a, c, h, x, A, m, I, S, y, _, P, F);
+        sampleGrid(e, t, n, r, i, s, o, a, c, h, x, A, m, I, S, y, D, P, F) {
+          const v = wt.quadrilateralToQuadrilateral(r, i, s, o, a, c, h, x, A, m, I, S, y, D, P, F);
           return this.sampleGridWithTransform(e, t, n, v);
         }
         sampleGridWithTransform(e, t, n, r) {
@@ -3050,7 +3050,7 @@ var Es = _i((Jr) => {
             for (let I = 0; I < 2; I++) {
               if (I === 1 && (i.reverse(), t && t.get(we.NEED_RESULT_POINT_CALLBACK) === !0)) {
                 const S = /* @__PURE__ */ new Map();
-                t.forEach((y, _) => S.set(_, y)), S.delete(we.NEED_RESULT_POINT_CALLBACK), t = S;
+                t.forEach((y, D) => S.set(D, y)), S.delete(we.NEED_RESULT_POINT_CALLBACK), t = S;
               }
               try {
                 const S = this.decodeRow(m, i, t);
@@ -3170,10 +3170,10 @@ var Es = _i((Jr) => {
           }
           let h = !1, x = !1, A = "", m = i[0], I = i[1];
           const S = Int32Array.from([0, 0, 0, 0, 0, 0]);
-          let y = 0, _ = 0, P = s, F = 0, v = !0, re = !1, $ = !1;
+          let y = 0, D = 0, P = s, F = 0, v = !0, re = !1, $ = !1;
           for (; !h; ) {
             const on = x;
-            switch (x = !1, y = _, _ = H.decodeCode(t, S, I), a[o++] = _, _ !== H.CODE_STOP && (v = !0), _ !== H.CODE_STOP && (F++, P += F * _), m = I, I += S.reduce((Mi, Oi) => Mi + Oi, 0), _) {
+            switch (x = !1, y = D, D = H.decodeCode(t, S, I), a[o++] = D, D !== H.CODE_STOP && (v = !0), D !== H.CODE_STOP && (F++, P += F * D), m = I, I += S.reduce((Mi, Oi) => Mi + Oi, 0), D) {
               case H.CODE_START_A:
               case H.CODE_START_B:
               case H.CODE_START_C:
@@ -3181,12 +3181,12 @@ var Es = _i((Jr) => {
             }
             switch (c) {
               case H.CODE_CODE_A:
-                if (_ < 64)
-                  $ === re ? A += String.fromCharCode(" ".charCodeAt(0) + _) : A += String.fromCharCode(" ".charCodeAt(0) + _ + 128), $ = !1;
-                else if (_ < 96)
-                  $ === re ? A += String.fromCharCode(_ - 64) : A += String.fromCharCode(_ + 64), $ = !1;
+                if (D < 64)
+                  $ === re ? A += String.fromCharCode(" ".charCodeAt(0) + D) : A += String.fromCharCode(" ".charCodeAt(0) + D + 128), $ = !1;
+                else if (D < 96)
+                  $ === re ? A += String.fromCharCode(D - 64) : A += String.fromCharCode(D + 64), $ = !1;
                 else
-                  switch (_ !== H.CODE_STOP && (v = !1), _) {
+                  switch (D !== H.CODE_STOP && (v = !1), D) {
                     case H.CODE_FNC_1:
                       r && (A.length === 0 ? A += "]C1" : A += String.fromCharCode(29));
                       break;
@@ -3211,10 +3211,10 @@ var Es = _i((Jr) => {
                   }
                 break;
               case H.CODE_CODE_B:
-                if (_ < 96)
-                  $ === re ? A += String.fromCharCode(" ".charCodeAt(0) + _) : A += String.fromCharCode(" ".charCodeAt(0) + _ + 128), $ = !1;
+                if (D < 96)
+                  $ === re ? A += String.fromCharCode(" ".charCodeAt(0) + D) : A += String.fromCharCode(" ".charCodeAt(0) + D + 128), $ = !1;
                 else
-                  switch (_ !== H.CODE_STOP && (v = !1), _) {
+                  switch (D !== H.CODE_STOP && (v = !1), D) {
                     case H.CODE_FNC_1:
                       r && (A.length === 0 ? A += "]C1" : A += String.fromCharCode(29));
                       break;
@@ -3239,10 +3239,10 @@ var Es = _i((Jr) => {
                   }
                 break;
               case H.CODE_CODE_C:
-                if (_ < 100)
-                  _ < 10 && (A += "0"), A += _;
+                if (D < 100)
+                  D < 10 && (A += "0"), A += D;
                 else
-                  switch (_ !== H.CODE_STOP && (v = !1), _) {
+                  switch (D !== H.CODE_STOP && (v = !1), D) {
                     case H.CODE_FNC_1:
                       r && (A.length === 0 ? A += "]C1" : A += String.fromCharCode(29));
                       break;
@@ -3412,8 +3412,8 @@ var Es = _i((Jr) => {
             throw new L();
           if (this.usingCheckDigit) {
             let S = this.decodeRowResult.length - 1, y = 0;
-            for (let _ = 0; _ < S; _++)
-              y += Pe.ALPHABET_STRING.indexOf(this.decodeRowResult.charAt(_));
+            for (let D = 0; D < S; D++)
+              y += Pe.ALPHABET_STRING.indexOf(this.decodeRowResult.charAt(D));
             if (this.decodeRowResult.charAt(S) !== Pe.ALPHABET_STRING.charAt(y % 43))
               throw new J();
             this.decodeRowResult = this.decodeRowResult.substring(0, S);
@@ -3962,10 +3962,10 @@ var Es = _i((Jr) => {
             throw new U();
           if (!he.checkChecksum(A))
             throw new J();
-          let m = (r[1] + r[0]) / 2, I = (c[1] + c[0]) / 2, S = this.getBarcodeFormat(), y = [new G(m, e), new G(I, e)], _ = new Je(A, null, 0, y, S, new Date().getTime()), P = 0;
+          let m = (r[1] + r[0]) / 2, I = (c[1] + c[0]) / 2, S = this.getBarcodeFormat(), y = [new G(m, e), new G(I, e)], D = new Je(A, null, 0, y, S, new Date().getTime()), P = 0;
           try {
             let v = fr.decodeRow(e, t, c[1]);
-            _.putMetadata(Ve.UPC_EAN_EXTENSION, v.getText()), _.putAllMetadata(v.getResultMetadata()), _.addResultPoints(v.getResultPoints()), P = v.getText().length;
+            D.putMetadata(Ve.UPC_EAN_EXTENSION, v.getText()), D.putAllMetadata(v.getResultMetadata()), D.addResultPoints(v.getResultPoints()), P = v.getText().length;
           } catch (v) {
           }
           let F = n == null ? null : n.get(we.ALLOWED_EAN_EXTENSIONS);
@@ -3979,7 +3979,7 @@ var Es = _i((Jr) => {
             if (!v)
               throw new L();
           }
-          return _;
+          return D;
         }
         decodeEnd(e, t) {
           return he.findGuardPattern(
@@ -5423,11 +5423,11 @@ var Es = _i((Jr) => {
               let Xe = B.WEIGHTS[m][2 * me + 1];
               y += h[me] * Xe;
             }
-          let _ = S + y;
+          let D = S + y;
           if ((I & 1) != 0 || I > 13 || I < 4)
             throw new L();
           let P = (13 - I) / 2, F = B.SYMBOL_WIDEST[P], v = 9 - F, re = mt.getRSSvalue(c, F, !0), $ = mt.getRSSvalue(h, v, !1), ot = B.EVEN_TOTAL_SUBSET[P], Ct = B.GSUM[P], at = re * ot + $ + Ct;
-          return new qt(at, _);
+          return new qt(at, D);
         }
         static isNotA1left(e, t, n) {
           return !(e.getValue() == 0 && t && n);
@@ -5607,17 +5607,17 @@ var Es = _i((Jr) => {
             ve.recordPatternInReverse(e, t.getStartEnd()[0], r);
           else {
             ve.recordPattern(e, t.getStartEnd()[1] + 1, r);
-            for (let y = 0, _ = r.length - 1; y < _; y++, _--) {
+            for (let y = 0, D = r.length - 1; y < D; y++, D--) {
               let P = r[y];
-              r[y] = r[_], r[_] = P;
+              r[y] = r[D], r[D] = P;
             }
           }
           let i = n ? 16 : 15, s = oe.sum(new Int32Array(r)) / i, o = this.getOddCounts(), a = this.getEvenCounts(), c = this.getOddRoundingErrors(), h = this.getEvenRoundingErrors();
           for (let y = 0; y < r.length; y++) {
-            let _ = r[y] / s, P = Math.floor(_ + 0.5);
+            let D = r[y] / s, P = Math.floor(D + 0.5);
             P < 1 ? P = 1 : P > 8 && (P = 8);
             let F = Math.floor(y / 2);
-            (y & 1) === 0 ? (o[F] = P, c[F] = _ - P) : (a[F] = P, h[F] = _ - P);
+            (y & 1) === 0 ? (o[F] = P, c[F] = D - P) : (a[F] = P, h[F] = D - P);
           }
           this.adjustOddEvenCounts(n, i);
           let x = 0, A = 0;
@@ -5630,12 +5630,12 @@ var Es = _i((Jr) => {
           if (n) {
             if ((x & 1) !== 0 || x > 12 || x < 4)
               throw new L();
-            let y = (12 - x) / 2, _ = _e.OUTSIDE_ODD_WIDEST[y], P = 9 - _, F = mt.getRSSvalue(o, _, !1), v = mt.getRSSvalue(a, P, !0), re = _e.OUTSIDE_EVEN_TOTAL_SUBSET[y], $ = _e.OUTSIDE_GSUM[y];
+            let y = (12 - x) / 2, D = _e.OUTSIDE_ODD_WIDEST[y], P = 9 - D, F = mt.getRSSvalue(o, D, !1), v = mt.getRSSvalue(a, P, !0), re = _e.OUTSIDE_EVEN_TOTAL_SUBSET[y], $ = _e.OUTSIDE_GSUM[y];
             return new qt(F * re + v + $, S);
           } else {
             if ((I & 1) !== 0 || I > 10 || I < 4)
               throw new L();
-            let y = (10 - I) / 2, _ = _e.INSIDE_ODD_WIDEST[y], P = 9 - _, F = mt.getRSSvalue(o, _, !0), v = mt.getRSSvalue(a, P, !1), re = _e.INSIDE_ODD_TOTAL_SUBSET[y], $ = _e.INSIDE_GSUM[y];
+            let y = (10 - I) / 2, D = _e.INSIDE_ODD_WIDEST[y], P = 9 - D, F = mt.getRSSvalue(o, D, !0), v = mt.getRSSvalue(a, P, !1), re = _e.INSIDE_ODD_TOTAL_SUBSET[y], $ = _e.INSIDE_GSUM[y];
             return new qt(v * re + F + $, S);
           }
         }
@@ -5919,19 +5919,19 @@ var Es = _i((Jr) => {
         extractDataRegion(e) {
           const t = this.version.getSymbolSizeRows(), n = this.version.getSymbolSizeColumns();
           if (e.getHeight() !== t)
-            throw new D("Dimension of bitMatrix must match the version size");
+            throw new O("Dimension of bitMatrix must match the version size");
           const r = this.version.getDataRegionSizeRows(), i = this.version.getDataRegionSizeColumns(), s = t / r | 0, o = n / i | 0, a = s * r, c = o * i, h = new Ue(c, a);
           for (let x = 0; x < s; ++x) {
             const A = x * r;
             for (let m = 0; m < o; ++m) {
               const I = m * i;
               for (let S = 0; S < r; ++S) {
-                const y = x * (r + 2) + 1 + S, _ = A + S;
+                const y = x * (r + 2) + 1 + S, D = A + S;
                 for (let P = 0; P < i; ++P) {
                   const F = m * (i + 2) + 1 + P;
                   if (e.get(F, y)) {
                     const v = I + P;
-                    h.set(v, _);
+                    h.set(v, D);
                   }
                 }
               }
@@ -5954,8 +5954,8 @@ var Es = _i((Jr) => {
           let o = 0;
           for (let S of i)
             for (let y = 0; y < S.getCount(); y++) {
-              const _ = S.getDataCodewords(), P = n.getECCodewords() + _;
-              s[o++] = new Yn(_, new Uint8Array(P));
+              const D = S.getDataCodewords(), P = n.getECCodewords() + D;
+              s[o++] = new Yn(D, new Uint8Array(P));
             }
           const c = s[0].codewords.length - n.getECCodewords(), h = c - 1;
           let x = 0;
@@ -5968,11 +5968,11 @@ var Es = _i((Jr) => {
           const I = s[0].codewords.length;
           for (let S = c; S < I; S++)
             for (let y = 0; y < o; y++) {
-              const _ = A ? (y + 8) % o : y, P = A && _ > 7 ? S - 1 : S;
-              s[_].codewords[P] = e[x++];
+              const D = A ? (y + 8) % o : y, P = A && D > 7 ? S - 1 : S;
+              s[D].codewords[P] = e[x++];
             }
           if (x !== e.length)
-            throw new D();
+            throw new O();
           return s;
         }
         getNumDataCodewords() {
@@ -5994,7 +5994,7 @@ var Es = _i((Jr) => {
         }
         readBits(e) {
           if (e < 1 || e > 32 || e > this.available())
-            throw new D("" + e);
+            throw new O("" + e);
           let t = 0, n = this.bitOffset, r = this.byteOffset;
           const i = this.bytes;
           if (n > 0) {
@@ -6524,8 +6524,8 @@ var Es = _i((Jr) => {
           }
           let a = Math.abs(i - n), c = Math.abs(s - r), h = -a / 2, x = r < s ? 1 : -1, A = n < i ? 1 : -1, m = 0, I = this.image.get(o ? r : n, o ? n : r);
           for (let S = n, y = r; S !== i; S += A) {
-            let _ = this.image.get(o ? y : S, o ? S : y);
-            if (_ !== I && (m++, I = _), h += c, h > 0) {
+            let D = this.image.get(o ? y : S, o ? S : y);
+            if (D !== I && (m++, I = D), h += c, h > 0) {
               if (y === s)
                 break;
               y += x, h -= a;
@@ -6634,7 +6634,7 @@ var Es = _i((Jr) => {
         }
         static forBits(e) {
           if (e < 0 || e >= ye.FOR_BITS.size)
-            throw new D();
+            throw new O();
           return ye.FOR_BITS.get(e);
         }
       }
@@ -6778,7 +6778,7 @@ var Es = _i((Jr) => {
         }
         static getVersionForNumber(e) {
           if (e < 1 || e > 40)
-            throw new D();
+            throw new O();
           return j.VERSIONS[e - 1];
         }
         static decodeVersionInformation(e) {
@@ -7002,7 +7002,7 @@ var Es = _i((Jr) => {
         }
         static getDataBlocks(e, t, n) {
           if (e.length !== t.getTotalCodewords())
-            throw new D();
+            throw new O();
           const r = t.getECBlocksForLevel(n);
           let i = 0;
           const s = r.getECBlocks();
@@ -7012,8 +7012,8 @@ var Es = _i((Jr) => {
           let a = 0;
           for (const I of s)
             for (let S = 0; S < I.getCount(); S++) {
-              const y = I.getDataCodewords(), _ = r.getECCodewordsPerBlock() + y;
-              o[a++] = new Zn(y, new Uint8Array(_));
+              const y = I.getDataCodewords(), D = r.getECCodewordsPerBlock() + y;
+              o[a++] = new Zn(y, new Uint8Array(D));
             }
           const c = o[0].codewords.length;
           let h = o.length - 1;
@@ -7053,7 +7053,7 @@ var Es = _i((Jr) => {
         static forBits(e) {
           const t = W.FOR_BITS.get(e);
           if (t === void 0)
-            throw new D();
+            throw new O();
           return t;
         }
         getCharacterCountBits(e) {
@@ -7728,10 +7728,10 @@ var Es = _i((Jr) => {
           const s = dn.computeDimension(t, n, r, i), o = j.getProvisionalVersionForDimension(s), a = o.getDimensionForVersion() - 7;
           let c = null;
           if (o.getAlignmentPatternCenters().length > 0) {
-            const m = n.getX() - t.getX() + r.getX(), I = n.getY() - t.getY() + r.getY(), S = 1 - 3 / a, y = Math.floor(t.getX() + S * (m - t.getX())), _ = Math.floor(t.getY() + S * (I - t.getY()));
+            const m = n.getX() - t.getX() + r.getX(), I = n.getY() - t.getY() + r.getY(), S = 1 - 3 / a, y = Math.floor(t.getX() + S * (m - t.getX())), D = Math.floor(t.getY() + S * (I - t.getY()));
             for (let P = 4; P <= 16; P <<= 1)
               try {
-                c = this.findAlignmentInRegion(i, y, _, P);
+                c = this.findAlignmentInRegion(i, y, D, P);
                 break;
               } catch (F) {
                 if (!(F instanceof L))
@@ -7880,8 +7880,8 @@ var Es = _i((Jr) => {
           const I = new Ue(c, h);
           for (let S = 0; S < h; S++) {
             const y = i + Math.floor(S * r);
-            for (let _ = 0; _ < c; _++)
-              e.get(o + Math.floor(_ * r), y) && I.set(_, S);
+            for (let D = 0; D < c; D++)
+              e.get(o + Math.floor(D * r), y) && I.set(D, S);
           }
           return I;
         }
@@ -13622,7 +13622,7 @@ var Es = _i((Jr) => {
       class We {
         constructor(e, t) {
           if (t.length === 0)
-            throw new D();
+            throw new O();
           this.field = e;
           let n = t.length;
           if (n > 1 && t[0] === 0) {
@@ -13661,7 +13661,7 @@ var Es = _i((Jr) => {
         }
         add(e) {
           if (!this.field.equals(e.field))
-            throw new D("ModulusPolys do not have same ModulusGF field");
+            throw new O("ModulusPolys do not have same ModulusGF field");
           if (this.isZero())
             return e;
           if (e.isZero())
@@ -13679,7 +13679,7 @@ var Es = _i((Jr) => {
         }
         subtract(e) {
           if (!this.field.equals(e.field))
-            throw new D("ModulusPolys do not have same ModulusGF field");
+            throw new O("ModulusPolys do not have same ModulusGF field");
           return e.isZero() ? this : this.add(e.negative());
         }
         multiply(e) {
@@ -13687,7 +13687,7 @@ var Es = _i((Jr) => {
         }
         multiplyOther(e) {
           if (!this.field.equals(e.field))
-            throw new D("ModulusPolys do not have same ModulusGF field");
+            throw new O("ModulusPolys do not have same ModulusGF field");
           if (this.isZero() || e.isZero())
             return new We(this.field, new Int32Array([0]));
           let t = this.coefficients, n = t.length, r = e.coefficients, i = r.length, s = new Int32Array(n + i - 1);
@@ -13716,7 +13716,7 @@ var Es = _i((Jr) => {
         }
         multiplyByMonomial(e, t) {
           if (e < 0)
-            throw new D();
+            throw new O();
           if (t === 0)
             return new We(this.field, new Int32Array([0]));
           let n = this.coefficients.length, r = new Int32Array(n + e);
@@ -13745,7 +13745,7 @@ var Es = _i((Jr) => {
         }
         log(e) {
           if (e === 0)
-            throw new D();
+            throw new O();
           return this.logTable[e];
         }
         inverse(e) {
@@ -13781,7 +13781,7 @@ var Es = _i((Jr) => {
         }
         buildMonomial(e, t) {
           if (e < 0)
-            throw new D();
+            throw new O();
           if (t === 0)
             return this.zero;
           let n = new Int32Array(e + 1);
@@ -13829,8 +13829,8 @@ var Es = _i((Jr) => {
             i = A;
             let I = this.field.getZero(), S = r.getCoefficient(r.getDegree()), y = this.field.inverse(S);
             for (; i.getDegree() >= r.getDegree() && !i.isZero(); ) {
-              let _ = i.getDegree() - r.getDegree(), P = this.field.multiply(i.getCoefficient(i.getDegree()), y);
-              I = I.add(this.field.buildMonomial(_, P)), i = i.subtract(r.multiplyByMonomial(_, P));
+              let D = i.getDegree() - r.getDegree(), P = this.field.multiply(i.getCoefficient(i.getDegree()), y);
+              I = I.add(this.field.buildMonomial(D, P)), i = i.subtract(r.multiplyByMonomial(D, P));
             }
             o = I.multiply(s).subtract(m).negative();
           }
@@ -14499,7 +14499,7 @@ var Es = _i((Jr) => {
       class xi extends di {
         constructor(e = 32) {
           if (super(), this.count = 0, e < 0)
-            throw new D("Negative initial size: " + e);
+            throw new O("Negative initial size: " + e);
           this.buf = new Uint8Array(e);
         }
         ensureCapacity(e) {
@@ -14577,43 +14577,43 @@ var Es = _i((Jr) => {
           g[t] = g[t - 1] * e;
         return g;
       }
-      class O {
+      class _ {
         static decode(e, t) {
           let n = new Ae(""), r = k.ISO8859_1;
           n.enableDecoding(r);
           let i = 1, s = e[i++], o = new Er();
           for (; i < e[0]; ) {
             switch (s) {
-              case O.TEXT_COMPACTION_MODE_LATCH:
-                i = O.textCompaction(e, i, n);
+              case _.TEXT_COMPACTION_MODE_LATCH:
+                i = _.textCompaction(e, i, n);
                 break;
-              case O.BYTE_COMPACTION_MODE_LATCH:
-              case O.BYTE_COMPACTION_MODE_LATCH_6:
-                i = O.byteCompaction(s, e, r, i, n);
+              case _.BYTE_COMPACTION_MODE_LATCH:
+              case _.BYTE_COMPACTION_MODE_LATCH_6:
+                i = _.byteCompaction(s, e, r, i, n);
                 break;
-              case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+              case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
                 n.append(e[i++]);
                 break;
-              case O.NUMERIC_COMPACTION_MODE_LATCH:
-                i = O.numericCompaction(e, i, n);
+              case _.NUMERIC_COMPACTION_MODE_LATCH:
+                i = _.numericCompaction(e, i, n);
                 break;
-              case O.ECI_CHARSET:
+              case _.ECI_CHARSET:
                 k.getCharacterSetECIByValue(e[i++]);
                 break;
-              case O.ECI_GENERAL_PURPOSE:
+              case _.ECI_GENERAL_PURPOSE:
                 i += 2;
                 break;
-              case O.ECI_USER_DEFINED:
+              case _.ECI_USER_DEFINED:
                 i++;
                 break;
-              case O.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
-                i = O.decodeMacroBlock(e, i, o);
+              case _.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
+                i = _.decodeMacroBlock(e, i, o);
                 break;
-              case O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
-              case O.MACRO_PDF417_TERMINATOR:
+              case _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
+              case _.MACRO_PDF417_TERMINATOR:
                 throw new U();
               default:
-                i--, i = O.textCompaction(e, i, n);
+                i--, i = _.textCompaction(e, i, n);
                 break;
             }
             if (i < e.length)
@@ -14627,52 +14627,52 @@ var Es = _i((Jr) => {
           return a.setOther(o), a;
         }
         static decodeMacroBlock(e, t, n) {
-          if (t + O.NUMBER_OF_SEQUENCE_CODEWORDS > e[0])
+          if (t + _.NUMBER_OF_SEQUENCE_CODEWORDS > e[0])
             throw U.getFormatInstance();
-          let r = new Int32Array(O.NUMBER_OF_SEQUENCE_CODEWORDS);
-          for (let o = 0; o < O.NUMBER_OF_SEQUENCE_CODEWORDS; o++, t++)
+          let r = new Int32Array(_.NUMBER_OF_SEQUENCE_CODEWORDS);
+          for (let o = 0; o < _.NUMBER_OF_SEQUENCE_CODEWORDS; o++, t++)
             r[o] = e[t];
-          n.setSegmentIndex(Q.parseInt(O.decodeBase900toBase10(r, O.NUMBER_OF_SEQUENCE_CODEWORDS)));
+          n.setSegmentIndex(Q.parseInt(_.decodeBase900toBase10(r, _.NUMBER_OF_SEQUENCE_CODEWORDS)));
           let i = new Ae();
-          t = O.textCompaction(e, t, i), n.setFileId(i.toString());
+          t = _.textCompaction(e, t, i), n.setFileId(i.toString());
           let s = -1;
-          for (e[t] === O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD && (s = t + 1); t < e[0]; )
+          for (e[t] === _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD && (s = t + 1); t < e[0]; )
             switch (e[t]) {
-              case O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
+              case _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
                 switch (t++, e[t]) {
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_FILE_NAME:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_FILE_NAME:
                     let o = new Ae();
-                    t = O.textCompaction(e, t + 1, o), n.setFileName(o.toString());
+                    t = _.textCompaction(e, t + 1, o), n.setFileName(o.toString());
                     break;
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_SENDER:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_SENDER:
                     let a = new Ae();
-                    t = O.textCompaction(e, t + 1, a), n.setSender(a.toString());
+                    t = _.textCompaction(e, t + 1, a), n.setSender(a.toString());
                     break;
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_ADDRESSEE:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_ADDRESSEE:
                     let c = new Ae();
-                    t = O.textCompaction(e, t + 1, c), n.setAddressee(c.toString());
+                    t = _.textCompaction(e, t + 1, c), n.setAddressee(c.toString());
                     break;
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_SEGMENT_COUNT:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_SEGMENT_COUNT:
                     let h = new Ae();
-                    t = O.numericCompaction(e, t + 1, h), n.setSegmentCount(Q.parseInt(h.toString()));
+                    t = _.numericCompaction(e, t + 1, h), n.setSegmentCount(Q.parseInt(h.toString()));
                     break;
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_TIME_STAMP:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_TIME_STAMP:
                     let x = new Ae();
-                    t = O.numericCompaction(e, t + 1, x), n.setTimestamp(pr.parseLong(x.toString()));
+                    t = _.numericCompaction(e, t + 1, x), n.setTimestamp(pr.parseLong(x.toString()));
                     break;
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_CHECKSUM:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_CHECKSUM:
                     let A = new Ae();
-                    t = O.numericCompaction(e, t + 1, A), n.setChecksum(Q.parseInt(A.toString()));
+                    t = _.numericCompaction(e, t + 1, A), n.setChecksum(Q.parseInt(A.toString()));
                     break;
-                  case O.MACRO_PDF417_OPTIONAL_FIELD_FILE_SIZE:
+                  case _.MACRO_PDF417_OPTIONAL_FIELD_FILE_SIZE:
                     let m = new Ae();
-                    t = O.numericCompaction(e, t + 1, m), n.setFileSize(pr.parseLong(m.toString()));
+                    t = _.numericCompaction(e, t + 1, m), n.setFileSize(pr.parseLong(m.toString()));
                     break;
                   default:
                     throw U.getFormatInstance();
                 }
                 break;
-              case O.MACRO_PDF417_TERMINATOR:
+              case _.MACRO_PDF417_TERMINATOR:
                 t++, n.setLastSegment(!0);
                 break;
               default:
@@ -14688,27 +14688,27 @@ var Es = _i((Jr) => {
           let r = new Int32Array((e[0] - t) * 2), i = new Int32Array((e[0] - t) * 2), s = 0, o = !1;
           for (; t < e[0] && !o; ) {
             let a = e[t++];
-            if (a < O.TEXT_COMPACTION_MODE_LATCH)
+            if (a < _.TEXT_COMPACTION_MODE_LATCH)
               r[s] = a / 30, r[s + 1] = a % 30, s += 2;
             else
               switch (a) {
-                case O.TEXT_COMPACTION_MODE_LATCH:
-                  r[s++] = O.TEXT_COMPACTION_MODE_LATCH;
+                case _.TEXT_COMPACTION_MODE_LATCH:
+                  r[s++] = _.TEXT_COMPACTION_MODE_LATCH;
                   break;
-                case O.BYTE_COMPACTION_MODE_LATCH:
-                case O.BYTE_COMPACTION_MODE_LATCH_6:
-                case O.NUMERIC_COMPACTION_MODE_LATCH:
-                case O.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
-                case O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
-                case O.MACRO_PDF417_TERMINATOR:
+                case _.BYTE_COMPACTION_MODE_LATCH:
+                case _.BYTE_COMPACTION_MODE_LATCH_6:
+                case _.NUMERIC_COMPACTION_MODE_LATCH:
+                case _.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
+                case _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
+                case _.MACRO_PDF417_TERMINATOR:
                   t--, o = !0;
                   break;
-                case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
-                  r[s] = O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE, a = e[t++], i[s] = a, s++;
+                case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+                  r[s] = _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE, a = e[t++], i[s] = a, s++;
                   break;
               }
           }
-          return O.decodeTextCompaction(r, i, s, n), t;
+          return _.decodeTextCompaction(r, i, s, n), t;
         }
         static decodeTextCompaction(e, t, n, r) {
           let i = Ce.ALPHA, s = Ce.ALPHA, o = 0;
@@ -14723,19 +14723,19 @@ var Es = _i((Jr) => {
                     case 26:
                       c = " ";
                       break;
-                    case O.LL:
+                    case _.LL:
                       i = Ce.LOWER;
                       break;
-                    case O.ML:
+                    case _.ML:
                       i = Ce.MIXED;
                       break;
-                    case O.PS:
+                    case _.PS:
                       s = i, i = Ce.PUNCT_SHIFT;
                       break;
-                    case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+                    case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
                       r.append(t[o]);
                       break;
-                    case O.TEXT_COMPACTION_MODE_LATCH:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
                       i = Ce.ALPHA;
                       break;
                   }
@@ -14748,63 +14748,63 @@ var Es = _i((Jr) => {
                     case 26:
                       c = " ";
                       break;
-                    case O.AS:
+                    case _.AS:
                       s = i, i = Ce.ALPHA_SHIFT;
                       break;
-                    case O.ML:
+                    case _.ML:
                       i = Ce.MIXED;
                       break;
-                    case O.PS:
+                    case _.PS:
                       s = i, i = Ce.PUNCT_SHIFT;
                       break;
-                    case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+                    case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
                       r.append(t[o]);
                       break;
-                    case O.TEXT_COMPACTION_MODE_LATCH:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
                       i = Ce.ALPHA;
                       break;
                   }
                 break;
               case Ce.MIXED:
-                if (a < O.PL)
-                  c = O.MIXED_CHARS[a];
+                if (a < _.PL)
+                  c = _.MIXED_CHARS[a];
                 else
                   switch (a) {
-                    case O.PL:
+                    case _.PL:
                       i = Ce.PUNCT;
                       break;
                     case 26:
                       c = " ";
                       break;
-                    case O.LL:
+                    case _.LL:
                       i = Ce.LOWER;
                       break;
-                    case O.AL:
+                    case _.AL:
                       i = Ce.ALPHA;
                       break;
-                    case O.PS:
+                    case _.PS:
                       s = i, i = Ce.PUNCT_SHIFT;
                       break;
-                    case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+                    case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
                       r.append(t[o]);
                       break;
-                    case O.TEXT_COMPACTION_MODE_LATCH:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
                       i = Ce.ALPHA;
                       break;
                   }
                 break;
               case Ce.PUNCT:
-                if (a < O.PAL)
-                  c = O.PUNCT_CHARS[a];
+                if (a < _.PAL)
+                  c = _.PUNCT_CHARS[a];
                 else
                   switch (a) {
-                    case O.PAL:
+                    case _.PAL:
                       i = Ce.ALPHA;
                       break;
-                    case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+                    case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
                       r.append(t[o]);
                       break;
-                    case O.TEXT_COMPACTION_MODE_LATCH:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
                       i = Ce.ALPHA;
                       break;
                   }
@@ -14817,23 +14817,23 @@ var Es = _i((Jr) => {
                     case 26:
                       c = " ";
                       break;
-                    case O.TEXT_COMPACTION_MODE_LATCH:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
                       i = Ce.ALPHA;
                       break;
                   }
                 break;
               case Ce.PUNCT_SHIFT:
-                if (i = s, a < O.PAL)
-                  c = O.PUNCT_CHARS[a];
+                if (i = s, a < _.PAL)
+                  c = _.PUNCT_CHARS[a];
                 else
                   switch (a) {
-                    case O.PAL:
+                    case _.PAL:
                       i = Ce.ALPHA;
                       break;
-                    case O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
+                    case _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE:
                       r.append(t[o]);
                       break;
-                    case O.TEXT_COMPACTION_MODE_LATCH:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
                       i = Ce.ALPHA;
                       break;
                   }
@@ -14845,17 +14845,17 @@ var Es = _i((Jr) => {
         static byteCompaction(e, t, n, r, i) {
           let s = new xi(), o = 0, a = 0, c = !1;
           switch (e) {
-            case O.BYTE_COMPACTION_MODE_LATCH:
+            case _.BYTE_COMPACTION_MODE_LATCH:
               let h = new Int32Array(6), x = t[r++];
               for (; r < t[0] && !c; )
                 switch (h[o++] = x, a = 900 * a + x, x = t[r++], x) {
-                  case O.TEXT_COMPACTION_MODE_LATCH:
-                  case O.BYTE_COMPACTION_MODE_LATCH:
-                  case O.NUMERIC_COMPACTION_MODE_LATCH:
-                  case O.BYTE_COMPACTION_MODE_LATCH_6:
-                  case O.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
-                  case O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
-                  case O.MACRO_PDF417_TERMINATOR:
+                  case _.TEXT_COMPACTION_MODE_LATCH:
+                  case _.BYTE_COMPACTION_MODE_LATCH:
+                  case _.NUMERIC_COMPACTION_MODE_LATCH:
+                  case _.BYTE_COMPACTION_MODE_LATCH_6:
+                  case _.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
+                  case _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
+                  case _.MACRO_PDF417_TERMINATOR:
                     r--, c = !0;
                     break;
                   default:
@@ -14866,24 +14866,24 @@ var Es = _i((Jr) => {
                     }
                     break;
                 }
-              r === t[0] && x < O.TEXT_COMPACTION_MODE_LATCH && (h[o++] = x);
+              r === t[0] && x < _.TEXT_COMPACTION_MODE_LATCH && (h[o++] = x);
               for (let A = 0; A < o; A++)
                 s.write(h[A]);
               break;
-            case O.BYTE_COMPACTION_MODE_LATCH_6:
+            case _.BYTE_COMPACTION_MODE_LATCH_6:
               for (; r < t[0] && !c; ) {
                 let A = t[r++];
-                if (A < O.TEXT_COMPACTION_MODE_LATCH)
+                if (A < _.TEXT_COMPACTION_MODE_LATCH)
                   o++, a = 900 * a + A;
                 else
                   switch (A) {
-                    case O.TEXT_COMPACTION_MODE_LATCH:
-                    case O.BYTE_COMPACTION_MODE_LATCH:
-                    case O.NUMERIC_COMPACTION_MODE_LATCH:
-                    case O.BYTE_COMPACTION_MODE_LATCH_6:
-                    case O.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
-                    case O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
-                    case O.MACRO_PDF417_TERMINATOR:
+                    case _.TEXT_COMPACTION_MODE_LATCH:
+                    case _.BYTE_COMPACTION_MODE_LATCH:
+                    case _.NUMERIC_COMPACTION_MODE_LATCH:
+                    case _.BYTE_COMPACTION_MODE_LATCH_6:
+                    case _.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
+                    case _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
+                    case _.MACRO_PDF417_TERMINATOR:
                       r--, c = !0;
                       break;
                   }
@@ -14898,38 +14898,38 @@ var Es = _i((Jr) => {
           return i.append(tt.decode(s.toByteArray(), n)), r;
         }
         static numericCompaction(e, t, n) {
-          let r = 0, i = !1, s = new Int32Array(O.MAX_NUMERIC_CODEWORDS);
+          let r = 0, i = !1, s = new Int32Array(_.MAX_NUMERIC_CODEWORDS);
           for (; t < e[0] && !i; ) {
             let o = e[t++];
-            if (t === e[0] && (i = !0), o < O.TEXT_COMPACTION_MODE_LATCH)
+            if (t === e[0] && (i = !0), o < _.TEXT_COMPACTION_MODE_LATCH)
               s[r] = o, r++;
             else
               switch (o) {
-                case O.TEXT_COMPACTION_MODE_LATCH:
-                case O.BYTE_COMPACTION_MODE_LATCH:
-                case O.BYTE_COMPACTION_MODE_LATCH_6:
-                case O.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
-                case O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
-                case O.MACRO_PDF417_TERMINATOR:
+                case _.TEXT_COMPACTION_MODE_LATCH:
+                case _.BYTE_COMPACTION_MODE_LATCH:
+                case _.BYTE_COMPACTION_MODE_LATCH_6:
+                case _.BEGIN_MACRO_PDF417_CONTROL_BLOCK:
+                case _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD:
+                case _.MACRO_PDF417_TERMINATOR:
                   t--, i = !0;
                   break;
               }
-            (r % O.MAX_NUMERIC_CODEWORDS === 0 || o === O.NUMERIC_COMPACTION_MODE_LATCH || i) && r > 0 && (n.append(O.decodeBase900toBase10(s, r)), r = 0);
+            (r % _.MAX_NUMERIC_CODEWORDS === 0 || o === _.NUMERIC_COMPACTION_MODE_LATCH || i) && r > 0 && (n.append(_.decodeBase900toBase10(s, r)), r = 0);
           }
           return t;
         }
         static decodeBase900toBase10(e, t) {
           let n = kt(0);
           for (let i = 0; i < t; i++)
-            n += O.EXP900[t - i - 1] * kt(e[i]);
+            n += _.EXP900[t - i - 1] * kt(e[i]);
           let r = n.toString();
           if (r.charAt(0) !== "1")
             throw new U();
           return r.substring(1);
         }
       }
-      O.TEXT_COMPACTION_MODE_LATCH = 900, O.BYTE_COMPACTION_MODE_LATCH = 901, O.NUMERIC_COMPACTION_MODE_LATCH = 902, O.BYTE_COMPACTION_MODE_LATCH_6 = 924, O.ECI_USER_DEFINED = 925, O.ECI_GENERAL_PURPOSE = 926, O.ECI_CHARSET = 927, O.BEGIN_MACRO_PDF417_CONTROL_BLOCK = 928, O.BEGIN_MACRO_PDF417_OPTIONAL_FIELD = 923, O.MACRO_PDF417_TERMINATOR = 922, O.MODE_SHIFT_TO_BYTE_COMPACTION_MODE = 913, O.MAX_NUMERIC_CODEWORDS = 15, O.MACRO_PDF417_OPTIONAL_FIELD_FILE_NAME = 0, O.MACRO_PDF417_OPTIONAL_FIELD_SEGMENT_COUNT = 1, O.MACRO_PDF417_OPTIONAL_FIELD_TIME_STAMP = 2, O.MACRO_PDF417_OPTIONAL_FIELD_SENDER = 3, O.MACRO_PDF417_OPTIONAL_FIELD_ADDRESSEE = 4, O.MACRO_PDF417_OPTIONAL_FIELD_FILE_SIZE = 5, O.MACRO_PDF417_OPTIONAL_FIELD_CHECKSUM = 6, O.PL = 25, O.LL = 27, O.AS = 27, O.ML = 28, O.AL = 28, O.PS = 29, O.PAL = 29, O.PUNCT_CHARS = `;<>@[\\]_\`~!\r	,:
--.$/"|*()?{}'`, O.MIXED_CHARS = "0123456789&\r	,:#-.$/+%*=^", O.EXP900 = Ir() ? wi() : [], O.NUMBER_OF_SEQUENCE_CODEWORDS = 2;
+      _.TEXT_COMPACTION_MODE_LATCH = 900, _.BYTE_COMPACTION_MODE_LATCH = 901, _.NUMERIC_COMPACTION_MODE_LATCH = 902, _.BYTE_COMPACTION_MODE_LATCH_6 = 924, _.ECI_USER_DEFINED = 925, _.ECI_GENERAL_PURPOSE = 926, _.ECI_CHARSET = 927, _.BEGIN_MACRO_PDF417_CONTROL_BLOCK = 928, _.BEGIN_MACRO_PDF417_OPTIONAL_FIELD = 923, _.MACRO_PDF417_TERMINATOR = 922, _.MODE_SHIFT_TO_BYTE_COMPACTION_MODE = 913, _.MAX_NUMERIC_CODEWORDS = 15, _.MACRO_PDF417_OPTIONAL_FIELD_FILE_NAME = 0, _.MACRO_PDF417_OPTIONAL_FIELD_SEGMENT_COUNT = 1, _.MACRO_PDF417_OPTIONAL_FIELD_TIME_STAMP = 2, _.MACRO_PDF417_OPTIONAL_FIELD_SENDER = 3, _.MACRO_PDF417_OPTIONAL_FIELD_ADDRESSEE = 4, _.MACRO_PDF417_OPTIONAL_FIELD_FILE_SIZE = 5, _.MACRO_PDF417_OPTIONAL_FIELD_CHECKSUM = 6, _.PL = 25, _.LL = 27, _.AS = 27, _.ML = 28, _.AL = 28, _.PS = 29, _.PAL = 29, _.PUNCT_CHARS = `;<>@[\\]_\`~!\r	,:
+-.$/"|*()?{}'`, _.MIXED_CHARS = "0123456789&\r	,:#-.$/+%*=^", _.EXP900 = Ir() ? wi() : [], _.NUMBER_OF_SEQUENCE_CODEWORDS = 2;
       class ne {
         constructor() {
         }
@@ -14954,15 +14954,15 @@ var Es = _i((Jr) => {
               continue;
             let y;
             S === 0 || S === A ? y = new Cr(a, S === 0) : y = new xn(a), x.setDetectionResultColumn(S, y);
-            let _ = -1, P = _;
+            let D = -1, P = D;
             for (let F = a.getMinY(); F <= a.getMaxY(); F++) {
-              if (_ = ne.getStartColumn(x, S, F, m), _ < 0 || _ > a.getMaxX()) {
+              if (D = ne.getStartColumn(x, S, F, m), D < 0 || D > a.getMaxX()) {
                 if (P === -1)
                   continue;
-                _ = P;
+                D = P;
               }
-              let v = ne.detectCodeword(e, a.getMinX(), a.getMaxX(), m, _, F, s, o);
-              v != null && (y.setCodeword(F, v), P = _, s = Math.min(s, v.getWidth()), o = Math.max(o, v.getWidth()));
+              let v = ne.detectCodeword(e, a.getMinX(), a.getMaxX(), m, D, F, s, o);
+              v != null && (y.setCodeword(F, v), P = D, s = Math.min(s, v.getWidth()), o = Math.max(o, v.getWidth()));
             }
           }
           return ne.createDecoderResult(x);
@@ -15157,7 +15157,7 @@ var Es = _i((Jr) => {
             throw U.getFormatInstance();
           let r = 1 << t + 1, i = ne.correctErrors(e, n, r);
           ne.verifyCodewordCount(e, r);
-          let s = O.decode(e, "" + t);
+          let s = _.decode(e, "" + t);
           return s.setErrorsCorrected(i), s.setErasures(n.length), s;
         }
         static correctErrors(e, t, n) {
@@ -15327,10 +15327,10 @@ var Es = _i((Jr) => {
         }
         encode(e, t) {
           if (t === 0)
-            throw new D("No error correction bytes");
+            throw new O("No error correction bytes");
           const n = e.length - t;
           if (n <= 0)
-            throw new D("No data bytes provided");
+            throw new O("No data bytes provided");
           const r = this.buildGenerator(t), i = new Int32Array(n);
           K.arraycopy(e, 0, i, 0, n);
           let s = new nt(this.field, i);
@@ -15422,7 +15422,7 @@ var Es = _i((Jr) => {
               i = n * t, r = i % 3 + (n + t & 1) & 1;
               break;
             default:
-              throw new D("Invalid mask pattern: " + e);
+              throw new O("Invalid mask pattern: " + e);
           }
           return r === 0;
         }
@@ -15623,7 +15623,7 @@ var Es = _i((Jr) => {
         }
         static calculateBCHCode(e, t) {
           if (t === 0)
-            throw new D("0 polynomial");
+            throw new O("0 polynomial");
           const n = X.findMSBSet(t);
           for (e <<= n - 1; X.findMSBSet(e) >= n; )
             e ^= t << X.findMSBSet(e) - n;
@@ -15828,8 +15828,8 @@ var Es = _i((Jr) => {
           this.terminateBits(m, h);
           const I = this.interleaveWithECBytes(h, c.getTotalCodewords(), m, A.getNumBlocks()), S = new Xt();
           S.setECLevel(t), S.setMode(s), S.setVersion(c);
-          const y = c.getDimensionForVersion(), _ = new Rn(y, y), P = this.chooseMaskPattern(I, t, c, _);
-          return S.setMaskPattern(P), X.buildMatrix(I, t, c, P, _), S.setMatrix(_), S;
+          const y = c.getDimensionForVersion(), D = new Rn(y, y), P = this.chooseMaskPattern(I, t, c, D);
+          return S.setMaskPattern(P), X.buildMatrix(I, t, c, P, D), S.setMatrix(D), S;
         }
         static recommendVersion(e, t, n, r) {
           const i = this.calculateBitsNeeded(t, n, r, j.getVersionForNumber(1)), s = this.chooseVersion(i, e), o = this.calculateBitsNeeded(t, n, r, s);
@@ -16161,9 +16161,9 @@ var Es = _i((Jr) => {
       class Zt {
         write(e, t, n, r = null) {
           if (e.length === 0)
-            throw new D("Found empty contents");
+            throw new O("Found empty contents");
           if (t < 0 || n < 0)
-            throw new D("Requested dimensions are too small: " + t + "x" + n);
+            throw new O("Requested dimensions are too small: " + t + "x" + n);
           let i = ye.L, s = Zt.QUIET_ZONE_SIZE;
           r !== null && (r.get(ke.ERROR_CORRECTION) !== void 0 && (i = ye.fromString(r.get(ke.ERROR_CORRECTION).toString())), r.get(ke.MARGIN) !== void 0 && (s = Number.parseInt(r.get(ke.MARGIN).toString(), 10)));
           const o = be.encode(e, i, r);
@@ -16179,10 +16179,10 @@ var Es = _i((Jr) => {
           if (i === null)
             throw new pt();
           const s = i.getWidth(), o = i.getHeight(), a = s + r * 2, c = o + r * 2, h = Math.max(t, a), x = Math.max(n, c), A = Math.min(Math.floor(h / a), Math.floor(x / c)), m = Math.floor((h - s * A) / 2), I = Math.floor((x - o * A) / 2), S = this.createSVGElement(h, x);
-          for (let y = 0, _ = I; y < o; y++, _ += A)
+          for (let y = 0, D = I; y < o; y++, D += A)
             for (let P = 0, F = m; P < s; P++, F += A)
               if (i.get(P, y) === 1) {
-                const v = this.createSvgRectElement(F, _, A, A);
+                const v = this.createSvgRectElement(F, D, A, A);
                 S.appendChild(v);
               }
           return S;
@@ -16200,11 +16200,11 @@ var Es = _i((Jr) => {
       class nn {
         encode(e, t, n, r, i) {
           if (e.length === 0)
-            throw new D("Found empty contents");
+            throw new O("Found empty contents");
           if (t !== Y.QR_CODE)
-            throw new D("Can only encode QR_CODE, but got " + t);
+            throw new O("Can only encode QR_CODE, but got " + t);
           if (n < 0 || r < 0)
-            throw new D(`Requested dimensions are too small: ${n}x${r}`);
+            throw new O(`Requested dimensions are too small: ${n}x${r}`);
           let s = ye.L, o = nn.QUIET_ZONE_SIZE;
           i !== null && (i.get(ke.ERROR_CORRECTION) !== void 0 && (s = ye.fromString(i.get(ke.ERROR_CORRECTION).toString())), i.get(ke.MARGIN) !== void 0 && (o = Number.parseInt(i.get(ke.MARGIN).toString(), 10)));
           const a = be.encode(e, s, i);
@@ -16215,9 +16215,9 @@ var Es = _i((Jr) => {
           if (i === null)
             throw new pt();
           const s = i.getWidth(), o = i.getHeight(), a = s + r * 2, c = o + r * 2, h = Math.max(t, a), x = Math.max(n, c), A = Math.min(Math.floor(h / a), Math.floor(x / c)), m = Math.floor((h - s * A) / 2), I = Math.floor((x - o * A) / 2), S = new Ue(h, x);
-          for (let y = 0, _ = I; y < o; y++, _ += A)
+          for (let y = 0, D = I; y < o; y++, D += A)
             for (let P = 0, F = m; P < s; P++, F += A)
-              i.get(P, y) === 1 && S.setRegion(F, _, A, A);
+              i.get(P, y) === 1 && S.setRegion(F, D, A, A);
           return S;
         }
       }
@@ -16230,7 +16230,7 @@ var Es = _i((Jr) => {
               s = new nn();
               break;
             default:
-              throw new D("No encoder available for format " + t);
+              throw new O("No encoder available for format " + t);
           }
           return s.encode(e, t, n, r, i);
         }
@@ -16238,12 +16238,12 @@ var Es = _i((Jr) => {
       class St extends cn {
         constructor(e, t, n, r, i, s, o, a) {
           if (super(s, o), this.yuvData = e, this.dataWidth = t, this.dataHeight = n, this.left = r, this.top = i, r + s > t || i + o > n)
-            throw new D("Crop rectangle does not fit within image data.");
+            throw new O("Crop rectangle does not fit within image data.");
           a && this.reverseHorizontal(s, o);
         }
         getRow(e, t) {
           if (e < 0 || e >= this.getHeight())
-            throw new D("Requested row is outside the image: " + e);
+            throw new O("Requested row is outside the image: " + e);
           const n = this.getWidth();
           (t == null || t.length < n) && (t = new Uint8ClampedArray(n));
           const r = (e + this.top) * this.dataWidth + this.left;
@@ -16315,11 +16315,11 @@ var Es = _i((Jr) => {
           } else
             this.luminances = e;
           if (r === void 0 && (this.dataWidth = t), i === void 0 && (this.dataHeight = n), s === void 0 && (this.left = 0), o === void 0 && (this.top = 0), this.left + t > this.dataWidth || this.top + n > this.dataHeight)
-            throw new D("Crop rectangle does not fit within image data.");
+            throw new O("Crop rectangle does not fit within image data.");
         }
         getRow(e, t) {
           if (e < 0 || e >= this.getHeight())
-            throw new D("Requested row is outside the image: " + e);
+            throw new O("Requested row is outside the image: " + e);
           const n = this.getWidth();
           (t == null || t.length < n) && (t = new Uint8ClampedArray(n));
           const r = (e + this.top) * this.dataWidth + this.left;
@@ -16743,18 +16743,18 @@ var Es = _i((Jr) => {
           let r = new pn(e).encode(), i = Q.truncDivision(r.getSize() * t, 100) + 11, s = r.getSize() + i, o, a, c, h, x;
           if (n !== ae.DEFAULT_AZTEC_LAYERS) {
             if (o = n < 0, a = Math.abs(n), a > (o ? ae.MAX_NB_BITS_COMPACT : ae.MAX_NB_BITS))
-              throw new D(q.format("Illegal value %s for layers", n));
+              throw new O(q.format("Illegal value %s for layers", n));
             c = ae.totalBitsInLayer(a, o), h = ae.WORD_SIZE[a];
             let v = c - c % h;
             if (x = ae.stuffBits(r, h), x.getSize() + i > v)
-              throw new D("Data to large for user specified layer");
+              throw new O("Data to large for user specified layer");
             if (o && x.getSize() > h * 64)
-              throw new D("Data to large for user specified layer");
+              throw new O("Data to large for user specified layer");
           } else {
             h = 0, x = null;
             for (let v = 0; ; v++) {
               if (v > ae.MAX_NB_BITS)
-                throw new D("Data too large for an Aztec code");
+                throw new O("Data too large for an Aztec code");
               if (o = v <= 3, a = o ? v + 1 : v, c = ae.totalBitsInLayer(a, o), s > c)
                 continue;
               (x == null || h !== ae.WORD_SIZE[a]) && (h = ae.WORD_SIZE[a], x = ae.stuffBits(r, h));
@@ -16763,20 +16763,20 @@ var Es = _i((Jr) => {
                 break;
             }
           }
-          let A = ae.generateCheckWords(x, c, h), m = x.getSize() / h, I = ae.generateModeMessage(o, a, m), S = (o ? 11 : 14) + a * 4, y = new Int32Array(S), _;
+          let A = ae.generateCheckWords(x, c, h), m = x.getSize() / h, I = ae.generateModeMessage(o, a, m), S = (o ? 11 : 14) + a * 4, y = new Int32Array(S), D;
           if (o) {
-            _ = S;
+            D = S;
             for (let v = 0; v < y.length; v++)
               y[v] = v;
           } else {
-            _ = S + 1 + 2 * Q.truncDivision(Q.truncDivision(S, 2) - 1, 15);
-            let v = Q.truncDivision(S, 2), re = Q.truncDivision(_, 2);
+            D = S + 1 + 2 * Q.truncDivision(Q.truncDivision(S, 2) - 1, 15);
+            let v = Q.truncDivision(S, 2), re = Q.truncDivision(D, 2);
             for (let $ = 0; $ < v; $++) {
               let ot = $ + Q.truncDivision($, 15);
               y[v - $ - 1] = re - ot - 1, y[v + $] = re + ot + 1;
             }
           }
-          let P = new Ue(_);
+          let P = new Ue(D);
           for (let v = 0, re = 0; v < a; v++) {
             let $ = (a - v) * 4 + (o ? 9 : 12);
             for (let ot = 0; ot < $; ot++) {
@@ -16786,16 +16786,16 @@ var Es = _i((Jr) => {
             }
             re += $ * 8;
           }
-          if (ae.drawModeMessage(P, o, _, I), o)
-            ae.drawBullsEye(P, Q.truncDivision(_, 2), 5);
+          if (ae.drawModeMessage(P, o, D, I), o)
+            ae.drawBullsEye(P, Q.truncDivision(D, 2), 5);
           else {
-            ae.drawBullsEye(P, Q.truncDivision(_, 2), 7);
+            ae.drawBullsEye(P, Q.truncDivision(D, 2), 7);
             for (let v = 0, re = 0; v < Q.truncDivision(S, 2) - 1; v += 15, re += 16)
-              for (let $ = Q.truncDivision(_, 2) & 1; $ < _; $ += 2)
-                P.set(Q.truncDivision(_, 2) - re, $), P.set(Q.truncDivision(_, 2) + re, $), P.set($, Q.truncDivision(_, 2) - re), P.set($, Q.truncDivision(_, 2) + re);
+              for (let $ = Q.truncDivision(D, 2) & 1; $ < D; $ += 2)
+                P.set(Q.truncDivision(D, 2) - re, $), P.set(Q.truncDivision(D, 2) + re, $), P.set($, Q.truncDivision(D, 2) - re), P.set($, Q.truncDivision(D, 2) + re);
           }
           let F = new yr();
-          return F.setCompact(o), F.setSize(_), F.setLayers(a), F.setCodeWords(m), F.setMatrix(P), F;
+          return F.setCompact(o), F.setSize(D), F.setLayers(a), F.setCodeWords(m), F.setMatrix(P), F;
         }
         static drawBullsEye(e, t, n) {
           for (let r = 0; r < n; r += 2)
@@ -16852,7 +16852,7 @@ var Es = _i((Jr) => {
             case 12:
               return ue.AZTEC_DATA_12;
             default:
-              throw new D("Unsupported word size " + e);
+              throw new O("Unsupported word size " + e);
           }
         }
         static stuffBits(e, t) {
@@ -16914,7 +16914,7 @@ var Es = _i((Jr) => {
         }
         static encodeLayers(e, t, n, r, i, s, o) {
           if (t !== Y.AZTEC)
-            throw new D("Can only encode AZTEC, but got " + t);
+            throw new O("Can only encode AZTEC, but got " + t);
           let a = ae.encode(q.getBytes(e, i), s, o);
           return Bn.renderResult(a, n, r);
         }
@@ -16929,7 +16929,7 @@ var Es = _i((Jr) => {
           return A;
         }
       }
-      l.AbstractExpandedDecoder = Gn, l.ArgumentException = M, l.ArithmeticException = In, l.AztecCode = yr, l.AztecCodeReader = yn, l.AztecCodeWriter = Bn, l.AztecDecoder = Se, l.AztecDetector = hr, l.AztecDetectorResult = lr, l.AztecEncoder = ae, l.AztecHighLevelEncoder = pn, l.AztecPoint = $e, l.BarcodeFormat = Y, l.Binarizer = Be, l.BinaryBitmap = ie, l.BitArray = ce, l.BitMatrix = Ue, l.BitSource = Xn, l.BrowserAztecCodeReader = $r, l.BrowserBarcodeReader = ii, l.BrowserCodeReader = zt, l.BrowserDatamatrixCodeReader = oi, l.BrowserMultiFormatReader = Ai, l.BrowserPDF417Reader = Ci, l.BrowserQRCodeReader = Ei, l.BrowserQRCodeSvgWriter = Zt, l.CharacterSetECI = k, l.ChecksumException = J, l.Code128Reader = H, l.Code39Reader = Pe, l.DataMatrixDecodedBitStreamParser = vt, l.DataMatrixReader = Pt, l.DecodeHintType = we, l.DecoderResult = ln, l.DefaultGridSampler = ur, l.DetectorResult = Sn, l.EAN13Reader = Gt, l.EncodeHintType = ke, l.Exception = C, l.FormatException = U, l.GenericGF = ue, l.GenericGFPoly = nt, l.GlobalHistogramBinarizer = He, l.GridSampler = Un, l.GridSamplerInstance = Lt, l.HTMLCanvasElementLuminanceSource = Rt, l.HybridBinarizer = ee, l.ITFReader = Ee, l.IllegalArgumentException = D, l.IllegalStateException = pt, l.InvertedLuminanceSource = Dt, l.LuminanceSource = cn, l.MathUtils = oe, l.MultiFormatOneDReader = en, l.MultiFormatReader = Tr, l.MultiFormatWriter = mi, l.NotFoundException = L, l.OneDReader = ve, l.PDF417DecodedBitStreamParser = O, l.PDF417DecoderErrorCorrection = Ar, l.PDF417Reader = Ye, l.PDF417ResultMetadata = Er, l.PerspectiveTransform = wt, l.PlanarYUVLuminanceSource = St, l.QRCodeByteMatrix = Rn, l.QRCodeDataMask = dt, l.QRCodeDecodedBitStreamParser = Me, l.QRCodeDecoderErrorCorrectionLevel = ye, l.QRCodeDecoderFormatInformation = Ke, l.QRCodeEncoder = be, l.QRCodeEncoderQRCode = Xt, l.QRCodeMaskUtil = De, l.QRCodeMatrixUtil = X, l.QRCodeMode = W, l.QRCodeReader = Ft, l.QRCodeVersion = j, l.QRCodeWriter = nn, l.RGBLuminanceSource = er, l.RSS14Reader = _e, l.RSSExpandedReader = B, l.ReaderException = Dn, l.ReedSolomonDecoder = hn, l.ReedSolomonEncoder = $n, l.ReedSolomonException = Kt, l.Result = Je, l.ResultMetadataType = Ve, l.ResultPoint = G, l.StringUtils = q, l.UnsupportedOperationException = Qt, l.VideoInputDevice = cr, l.WhiteRectangleDetector = Mt, l.WriterException = pe, l.ZXingArrays = le, l.ZXingCharset = Sr, l.ZXingInteger = Q, l.ZXingStandardCharsets = tr, l.ZXingStringBuilder = Ae, l.ZXingStringEncoding = tt, l.ZXingSystem = K, l.createAbstractExpandedDecoder = xr, Object.defineProperty(l, "__esModule", { value: !0 });
+      l.AbstractExpandedDecoder = Gn, l.ArgumentException = M, l.ArithmeticException = In, l.AztecCode = yr, l.AztecCodeReader = yn, l.AztecCodeWriter = Bn, l.AztecDecoder = Se, l.AztecDetector = hr, l.AztecDetectorResult = lr, l.AztecEncoder = ae, l.AztecHighLevelEncoder = pn, l.AztecPoint = $e, l.BarcodeFormat = Y, l.Binarizer = Be, l.BinaryBitmap = ie, l.BitArray = ce, l.BitMatrix = Ue, l.BitSource = Xn, l.BrowserAztecCodeReader = $r, l.BrowserBarcodeReader = ii, l.BrowserCodeReader = zt, l.BrowserDatamatrixCodeReader = oi, l.BrowserMultiFormatReader = Ai, l.BrowserPDF417Reader = Ci, l.BrowserQRCodeReader = Ei, l.BrowserQRCodeSvgWriter = Zt, l.CharacterSetECI = k, l.ChecksumException = J, l.Code128Reader = H, l.Code39Reader = Pe, l.DataMatrixDecodedBitStreamParser = vt, l.DataMatrixReader = Pt, l.DecodeHintType = we, l.DecoderResult = ln, l.DefaultGridSampler = ur, l.DetectorResult = Sn, l.EAN13Reader = Gt, l.EncodeHintType = ke, l.Exception = C, l.FormatException = U, l.GenericGF = ue, l.GenericGFPoly = nt, l.GlobalHistogramBinarizer = He, l.GridSampler = Un, l.GridSamplerInstance = Lt, l.HTMLCanvasElementLuminanceSource = Rt, l.HybridBinarizer = ee, l.ITFReader = Ee, l.IllegalArgumentException = O, l.IllegalStateException = pt, l.InvertedLuminanceSource = Dt, l.LuminanceSource = cn, l.MathUtils = oe, l.MultiFormatOneDReader = en, l.MultiFormatReader = Tr, l.MultiFormatWriter = mi, l.NotFoundException = L, l.OneDReader = ve, l.PDF417DecodedBitStreamParser = _, l.PDF417DecoderErrorCorrection = Ar, l.PDF417Reader = Ye, l.PDF417ResultMetadata = Er, l.PerspectiveTransform = wt, l.PlanarYUVLuminanceSource = St, l.QRCodeByteMatrix = Rn, l.QRCodeDataMask = dt, l.QRCodeDecodedBitStreamParser = Me, l.QRCodeDecoderErrorCorrectionLevel = ye, l.QRCodeDecoderFormatInformation = Ke, l.QRCodeEncoder = be, l.QRCodeEncoderQRCode = Xt, l.QRCodeMaskUtil = De, l.QRCodeMatrixUtil = X, l.QRCodeMode = W, l.QRCodeReader = Ft, l.QRCodeVersion = j, l.QRCodeWriter = nn, l.RGBLuminanceSource = er, l.RSS14Reader = _e, l.RSSExpandedReader = B, l.ReaderException = Dn, l.ReedSolomonDecoder = hn, l.ReedSolomonEncoder = $n, l.ReedSolomonException = Kt, l.Result = Je, l.ResultMetadataType = Ve, l.ResultPoint = G, l.StringUtils = q, l.UnsupportedOperationException = Qt, l.VideoInputDevice = cr, l.WhiteRectangleDetector = Mt, l.WriterException = pe, l.ZXingArrays = le, l.ZXingCharset = Sr, l.ZXingInteger = Q, l.ZXingStandardCharsets = tr, l.ZXingStringBuilder = Ae, l.ZXingStringEncoding = tt, l.ZXingSystem = K, l.createAbstractExpandedDecoder = xr, Object.defineProperty(l, "__esModule", { value: !0 });
     });
   })(Ie, Ie.exports);
   const vi = /* @__PURE__ */ Bi(Ie.exports), Pi = /* @__PURE__ */ Di({
@@ -17021,15 +17021,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -17183,15 +17183,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -17352,15 +17352,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -17617,15 +17617,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -17725,15 +17725,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -17828,8 +17828,8 @@ var Es = _i((Jr) => {
           switch (R.label) {
             case 0:
               return u = function(C) {
-                for (var M = C.getVideoTracks(), D = 0, ie = M; D < ie.length; D++) {
-                  var J = ie[D];
+                for (var M = C.getVideoTracks(), O = 0, ie = M; O < ie.length; O++) {
+                  var J = ie[O];
                   J.enabled = !1, J.stop(), C.removeTrack(J);
                 }
               }, [4, navigator.mediaDevices.getUserMedia({ audio: !1, video: !0 })];
@@ -17988,9 +17988,9 @@ var Es = _i((Jr) => {
       N.videoConstraints && (N.isMediaStreamConstraintsValid() ? R = !0 : this.logger.logError("'videoConstraints' is not valid 'MediaStreamConstraints, it will be ignored.'", !0));
       var C = R, M = document.getElementById(this.elementId);
       M.clientWidth ? M.clientWidth : lt.DEFAULT_WIDTH, M.style.position = "relative", this.shouldScan = !0, this.element = M;
-      var D = this, ie = this.stateManagerProxy.startTransition(Re.SCANNING);
+      var O = this, ie = this.stateManagerProxy.startTransition(Re.SCANNING);
       return new Promise(function(J, Be) {
-        var K = C ? N.videoConstraints : D.createVideoConstraints(u);
+        var K = C ? N.videoConstraints : O.createVideoConstraints(u);
         if (!K) {
           ie.cancel(), Be("videoConstraints should be defined");
           return;
@@ -17999,13 +17999,13 @@ var Es = _i((Jr) => {
         (!C || N.aspectRatio) && (Te.aspectRatio = N.aspectRatio);
         var Ze = {
           onRenderSurfaceReady: function(le, Q) {
-            D.setupUi(le, Q, N), D.isScanning = !0, D.foreverScan(N, w, T);
+            O.setupUi(le, Q, N), O.isScanning = !0, O.foreverScan(N, w, T);
           }
         };
         Yi.failIfNotSupported().then(function(le) {
           le.create(K).then(function(Q) {
             return Q.render(d.element, Te, Ze).then(function(ce) {
-              D.renderedCamera = ce, ie.execute(), J(null);
+              O.renderedCamera = ce, ie.execute(), J(null);
             }).catch(function(ce) {
               ie.cancel(), Be(ce);
             });
@@ -18066,14 +18066,14 @@ var Es = _i((Jr) => {
         w.possiblyCloseLastScanImageFile(), w.clearElement(), w.lastScanImageFile = URL.createObjectURL(u);
         var T = new Image();
         T.onload = function() {
-          var N = T.width, R = T.height, C = document.getElementById(w.elementId), M = C.clientWidth ? C.clientWidth : lt.DEFAULT_WIDTH, D = Math.max(C.clientHeight ? C.clientHeight : R, lt.FILE_SCAN_MIN_HEIGHT), ie = w.computeCanvasDrawConfig(N, R, M, D);
+          var N = T.width, R = T.height, C = document.getElementById(w.elementId), M = C.clientWidth ? C.clientWidth : lt.DEFAULT_WIDTH, O = Math.max(C.clientHeight ? C.clientHeight : R, lt.FILE_SCAN_MIN_HEIGHT), ie = w.computeCanvasDrawConfig(N, R, M, O);
           if (l) {
-            var J = w.createCanvasElement(M, D, "qr-canvas-visible");
+            var J = w.createCanvasElement(M, O, "qr-canvas-visible");
             J.style.display = "inline-block", C.appendChild(J);
             var Be = J.getContext("2d");
             if (!Be)
               throw "Unable to get 2d context from canvas";
-            Be.canvas.width = M, Be.canvas.height = D, Be.drawImage(T, 0, 0, N, R, ie.x, ie.y, ie.width, ie.height);
+            Be.canvas.width = M, Be.canvas.height = O, Be.drawImage(T, 0, 0, N, R, ie.x, ie.y, ie.width, ie.height);
           }
           var K = lt.FILE_SCAN_HIDDEN_CANVAS_PADDING, Te = Math.max(T.width, ie.width), Ze = Math.max(T.height, ie.height), le = Te + 2 * K, Q = Ze + 2 * K, ce = w.createCanvasElement(le, Q);
           C.appendChild(ce);
@@ -18187,8 +18187,8 @@ var Es = _i((Jr) => {
         y: 0,
         width: u,
         height: l
-      }, R = T ? this.getShadedRegionBounds(u, l, d) : N, C = this.createCanvasElement(R.width, R.height), M = { willReadFrequently: !0 }, D = C.getContext("2d", M);
-      D.canvas.width = R.width, D.canvas.height = R.height, this.element.append(C), T && this.possiblyInsertShadingElement(this.element, u, l, d), this.createScannerPausedUiElement(this.element), this.qrRegion = R, this.context = D, this.canvasElement = C;
+      }, R = T ? this.getShadedRegionBounds(u, l, d) : N, C = this.createCanvasElement(R.width, R.height), M = { willReadFrequently: !0 }, O = C.getContext("2d", M);
+      O.canvas.width = R.width, O.canvas.height = R.height, this.element.append(C), T && this.possiblyInsertShadingElement(this.element, u, l, d), this.createScannerPausedUiElement(this.element), this.qrRegion = R, this.context = O, this.canvasElement = C;
     }, f.prototype.createScannerPausedUiElement = function(u) {
       var l = document.createElement("div");
       l.innerText = an.scannerPaused(), l.style.display = "none", l.style.position = "absolute", l.style.top = "0px", l.style.zIndex = "1", l.style.background = "rgba(9, 9, 9, 0.46)", l.style.color = "#FFECEC", l.style.textAlign = "center", l.style.width = "100%", u.appendChild(l), this.scannerPausedUiElement = l;
@@ -18207,8 +18207,8 @@ var Es = _i((Jr) => {
         var d = this.renderedCamera.getSurface(), T = d.videoWidth / d.clientWidth, N = d.videoHeight / d.clientHeight;
         if (!this.qrRegion)
           throw "qrRegion undefined when localMediaStream is ready.";
-        var R = this.qrRegion.width * T, C = this.qrRegion.height * N, M = this.qrRegion.x * T, D = this.qrRegion.y * N;
-        this.context.drawImage(d, M, D, R, C, 0, 0, this.qrRegion.width, this.qrRegion.height);
+        var R = this.qrRegion.width * T, C = this.qrRegion.height * N, M = this.qrRegion.x * T, O = this.qrRegion.y * N;
+        this.context.drawImage(d, M, O, R, C, 0, 0, this.qrRegion.width, this.qrRegion.height);
         var ie = function() {
           E.foreverScanTimeout = setTimeout(function() {
             E.foreverScan(u, l, w);
@@ -18256,17 +18256,17 @@ var Es = _i((Jr) => {
             throw "Invalid type of 'facingMode' = ".concat(M);
           }
         } else {
-          var D = u.deviceId;
-          if (typeof D == "string")
-            return { deviceId: D };
-          if (typeof D == "object") {
-            if (d in D)
+          var O = u.deviceId;
+          if (typeof O == "string")
+            return { deviceId: O };
+          if (typeof O == "object") {
+            if (d in O)
               return {
-                deviceId: { exact: D["".concat(d)] }
+                deviceId: { exact: O["".concat(d)] }
               };
             throw "'deviceId' should be string or object with" + " ".concat(d, " as key.");
           } else {
-            var ie = typeof D;
+            var ie = typeof O;
             throw "Invalid type of 'deviceId' = ".concat(ie);
           }
         }
@@ -18425,15 +18425,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -18577,15 +18577,15 @@ var Es = _i((Jr) => {
       function N(M) {
         try {
           C(w.next(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function R(M) {
         try {
           C(w.throw(M));
-        } catch (D) {
-          T(D);
+        } catch (O) {
+          T(O);
         }
       }
       function C(M) {
@@ -18741,8 +18741,8 @@ var Es = _i((Jr) => {
         if (!(N == null || N.target == null)) {
           var R = N.target;
           if (!(R.files && R.files.length === 0)) {
-            var C = R.files, M = C[0], D = M.name;
-            d.setImageNameToButton(D), w(M);
+            var C = R.files, M = C[0], O = M.name;
+            d.setImageNameToButton(O), w(M);
           }
         }
       });
@@ -18760,8 +18760,8 @@ var Es = _i((Jr) => {
           var C = R.files;
           if (!C || C.length === 0)
             return;
-          for (var M = !1, D = 0; D < C.length; ++D) {
-            var ie = C.item(D);
+          for (var M = !1, O = 0; O < C.length; ++O) {
+            var ie = C.item(O);
             if (!!ie) {
               var J = /image.*/;
               if (!!ie.type.match(J)) {
@@ -18833,8 +18833,8 @@ var Es = _i((Jr) => {
           xe.anonymousCameraPrefix(),
           d++
         ].join(" "));
-        var D = document.createElement("option");
-        D.value = C, D.innerText = M, this.options.push(D), this.selectElement.appendChild(D);
+        var O = document.createElement("option");
+        O.value = C, O.innerText = M, this.options.push(O), this.selectElement.appendChild(O);
       }
       l.appendChild(this.selectElement), u.appendChild(l);
     }, f.prototype.disable = function() {
@@ -19062,14 +19062,14 @@ var Es = _i((Jr) => {
       C.innerText = xe.scanButtonStartScanningText(), R.appendChild(C);
       var M = Ot.createElement("button", ht.CAMERA_STOP_BUTTON_ID);
       M.innerText = xe.scanButtonStopScanningText(), M.style.display = "none", M.disabled = !0, R.appendChild(M);
-      var D, ie = function(K) {
+      var O, ie = function(K) {
         if (!K.torchFeature().isSupported()) {
-          D && D.hide();
+          O && O.hide();
           return;
         }
-        D ? D.updateTorchCapability(K.torchFeature()) : D = us.create(R, K.torchFeature(), { display: "none", marginLeft: "5px" }, function(Te) {
+        O ? O.updateTorchCapability(K.torchFeature()) : O = us.create(R, K.torchFeature(), { display: "none", marginLeft: "5px" }, function(Te) {
           w.setHeaderMessage(Te, ut.STATUS_WARNING);
-        }), D.show();
+        }), O.show();
       };
       E.appendChild(R);
       var J = function(K) {
@@ -19089,7 +19089,7 @@ var Es = _i((Jr) => {
         if (!w.html5Qrcode)
           throw "html5Qrcode not defined";
         M.disabled = !0, w.html5Qrcode.stop().then(function(Te) {
-          l.scanTypeSelector.hasMoreThanOneScanType() && w.showHideScanTypeSwapLink(!0), N.enable(), C.disabled = !1, M.style.display = "none", C.style.display = "inline-block", D && (D.reset(), D.hide()), d.removeOnCameraZoomValueChangeCallback(), d.hide(), w.insertCameraScanImageToScanRegion();
+          l.scanTypeSelector.hasMoreThanOneScanType() && w.showHideScanTypeSwapLink(!0), N.enable(), C.disabled = !1, M.style.display = "none", C.style.display = "inline-block", O && (O.reset(), O.hide()), d.removeOnCameraZoomValueChangeCallback(), d.hide(), w.insertCameraScanImageToScanRegion();
         }).catch(function(Te) {
           M.disabled = !1, w.setHeaderMessage(Te, ut.STATUS_WARNING);
         });
@@ -19197,8 +19197,8 @@ var Es = _i((Jr) => {
     }, u = (T) => {
       let N = T.split("/"), R = N[N.length - 1].split("");
       const C = document.querySelectorAll("#form-validate-codes input");
-      R.map((M, D) => {
-        C[D].value = M.toUpperCase();
+      R.map((M, O) => {
+        C[O].value = M.toUpperCase();
       });
     }, l = () => {
       const T = new ws("reader", {
@@ -19210,8 +19210,8 @@ var Es = _i((Jr) => {
         facingMode: { exact: "environment" }
       });
       function N(C) {
-        const { getCtnQrRender: M, getQrBg: D } = f();
-        D.classList.remove("active"), M.classList.remove("active"), u(C), T.clear(), document.getElementById("reader").remove();
+        const { getCtnQrRender: M, getQrBg: O } = f();
+        O.classList.remove("active"), M.classList.remove("active"), u(C), T.clear(), document.getElementById("reader").remove();
       }
       function R(C) {
       }
@@ -19223,8 +19223,8 @@ var Es = _i((Jr) => {
         const { getCtnQrRender: R, getQrBg: C } = f();
         try {
           yield navigator.mediaDevices.getUserMedia({ video: !0 }), l();
-          const M = document.querySelector("#html5-qrcode-button-camera-permission");
-          M && M.click(), R && R.classList.add("active"), C && C.classList.add("active");
+          const M = document.querySelector("#html5-qrcode-button-camera-permission"), O = document.querySelector("#html5-qrcode-button-camera-start");
+          M && M.click(), O && O.click(), R && R.classList.add("active"), C && C.classList.add("active");
         } catch (M) {
           console.log(M), N && N.classList.add("active");
         }
