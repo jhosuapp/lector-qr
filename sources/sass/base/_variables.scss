@@ -1,0 +1,18 @@
+//PALETA DE COLORES
+$palette:(
+    'white': #fff,
+    'black': #000,
+    'primary': #200596
+);
+//BREAKPOINTS
+$breakpoints: (
+    'desktop': 1440px,
+    'laptop': 1280px,
+    'laptop-small': 1100px,
+    'ipad-big': 992px,
+    'ipad-small': 768px,
+    'mobile': 576px
+);
+//OTHERS
+$transition-duration: 0.3s;
+$limit-width: 1400px;
