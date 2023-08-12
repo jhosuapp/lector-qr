@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="./css/main.css">
-  </head>
-  <body>
-    <section>
-      <button id="activeQRCode">Scann</button>
-      <div style="width: 500px" id="reader"></div>
-    </section>
-    <script type="module" src="./js/mainscript.js"></script> 
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <script type="module" crossorigin src="/assets/index.eb90a45d.js"></script>
+  <link rel="stylesheet" href="/assets/index.b3cfe197.css">
+</head>
+<body>
+    <main class="qr">
+
+
+        <section class="qr__ctn">
+
+            <h1>Lector de códigos qr con <a href="https://github.com/mebjas/html5-qrcode" target="_blank">html5-qrcode</a></h1>
+            <picture>
+                <img src="/img/icon-scan-qr.svg" alt="qr lector code" title="qr lector code">
+            </picture>
+            <button class="qr__btn">
+                Escanear código QR
+            </button>
+            <div class="qr__reader" id="reader"></div>
+        </section>
+
+
+    </main>
+    
+</body>
 </html>
