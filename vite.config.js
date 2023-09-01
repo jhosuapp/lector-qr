@@ -6,5 +6,6 @@ export default defineConfig({
     sourcemap: true,
     devtool: 'source-map',
     target: "es2015",
+    base: './'
   },
 });

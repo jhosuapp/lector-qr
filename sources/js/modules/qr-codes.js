@@ -14,14 +14,19 @@ const QrCodes = (()=>{
             html5QrCode.stop();
         }
 
-        const config = { fps: 10, qrbox: 250 };
+        const config = { fps: 10, qrbox: 220 };
         // SELECCIONAMOS LA CAMARA FRONTAL
-        html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback)
+        Html5Qrcode.getCameras().then(devices => {
+            html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback)
             .then(res=>{
                 getBtnStopScanner.classList.add('active');
             }).catch((err)=>{
                 alert('acepte los permisos por favor');
             });
+        }).catch((err)=>{
+            alert('acepte los permisos por favor');
+        });
+
         //EVENTO CLICK PARA PARAR SCANNER
         getBtnStopScanner.addEventListener('click', ()=>{ 
             html5QrCode.stop();  
